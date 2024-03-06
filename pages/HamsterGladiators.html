@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HamsterGladiators</title>
+        <script type="module" defer src="../js/HamsterGladiators.js"></script>
+        <link rel="stylesheet" href="../style/General.css">
+        <link rel="stylesheet" href="../style/HamsterGladiators.css">
+    </head>
+    <body>
+        <div id="EscMenu">
+            <button id="EscMenuResume">Resume</button>
+            <button id="EscMenuMenu">Menu</button>
+        </div>
+
+        <div id="YouDiedMenu">
+            <p>You Died</p>
+            <button id="YouDiedMenuRespawn">Respawn</button>
+            <button id="YouDiedMenuMenu">Menu</button>
+        </div>
+
+
+        <div id="HurtOverlay"></div>
+
+        <div class="ShadowOverlay"></div>
+
+
+        <div id="Weapon"></div>
+
+
+        <div class="UiWrapper">
+            <div class="Ui">
+                <div class="UpperUi">
+                    <div class="InventoryItemSlotHintWrapper">
+                        <div id="InventoryItem1SlotHint" class="InventoryItemSlotHint">
+                            <div class="HintDisplayPotion"></div>
+                            <div class="HintPotionInfo">
+                                <p class="HintPotionName">HP Potion</p>
+                                <p class="HintPotionDescription">Heals 33% HP.</p>
+                            </div>
+                        </div>
+                        <div id="InventoryItem2SlotHint" class="InventoryItemSlotHint">
+                            <div class="HintDisplayPotion"></div>
+                            <div class="HintPotionInfo">
+                                <p class="HintPotionName">DMG Potion</p>
+                                <p class="HintPotionDescription">Increases DMG for 7 seconds.</p>
+                            </div>
+                        </div>
+                        <div id="InventoryItem3SlotHint" class="InventoryItemSlotHint">
+                            <div class="HintDisplayPotion"></div>
+                            <div class="HintPotionInfo">
+                                <p class="HintPotionName">Speed Potion</p>
+                                <p class="HintPotionDescription">Increases SPEED for 7 seconds.</p>
+                            </div>
+                        </div>
+                        <div id="InventoryItem4SlotHint" class="InventoryItemSlotHint">
+                            <div class="HintDisplayPotion"></div>
+                            <div class="HintPotionInfo">
+                                <p class="HintPotionName">EXP Potion</p>
+                                <p class="HintPotionDescription">Increases Lvl</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="BottomUi">
+                    <div class="ProfileUiWrapper">
+                        <div id="ProfilePicture"></div>
+                        
+                        <div class="ProfileStats">
+                            <p id="ProfileName">Hamster</p>
+                            <p id="ProfileDmg">DMG: 100</p>
+                            <div class="ProfileHpWrapper">
+                                <div class="ProfileHpBarBackground"></div>
+                                <div class="ProfileHpColorWrapper">
+                                    <div id="ProfileHpColor"></div>
+                                </div>
+                                <p id="ProfileHpValue">100/100</p>
+                                <div class="ProfileHpBarFrame"></div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="CenterUiWrapper">
+                        <img id="QteKey" src="../resources/images/hud/qte/UpArrowBigGlow.png"></img>
+    
+                        <div class="Inventory">
+                            <div id="InventoryItem1Slot">
+                                <div id="InventoryItem1"></div>
+                                <p id="InventoryItem1Quantity">0</p>
+                            </div>
+                            <div id="InventoryItem2Slot">
+                                <div id="InventoryItem2"></div>
+                                <p id="InventoryItem2Quantity">0</p>
+                            </div>
+                            <div id="InventoryItem3Slot">
+                                <div id="InventoryItem3"></div>
+                                <p id="InventoryItem3Quantity">0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="MobWrapper">
+            <div class="MobHpWrapper">
+                <div class="MobHpBarBackground"></div>
+                <div class="MobHpColorWrapper">
+                    <div id="MobHpColor"></div>
+                </div>
+                <p id="MobHpValue">100/100</p>
+                <div class="MobHpBarFrame"></div>
+            </div>
+            <div id="Mob"><img></div>
+        </div>
+
+        <audio id="Music" autoplay loop>
+            <source src="../resources/sounds/music/MainTheme.mp3" type="audio/mpeg">
+        </audio>
+
+        <audio id="PlayerTakeDamageSound">
+            <source src="../resources/sounds/PlayerTakeDamage.mp3" type="audio/mpeg">
+        </audio>
+
+        <audio id="PlayerAttackSound">
+            <source src="../resources/sounds/PlayerAttack.mp3" type="audio/mpeg">
+        </audio>
+
+        <audio id="GameOverMusic">
+            <source src="../resources/sounds/music/GameOverMusic.mp3" type="audio/mpeg">
+        </audio>
+    </body>
+</html>

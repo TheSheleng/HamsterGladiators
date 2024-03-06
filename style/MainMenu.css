@@ -1,0 +1,23 @@
+body {
+    background-image: url("../resources/images/mainMenu/MainMenu.jpg");
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+
+.MainMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10.28vh;
+    height: 100%;
+    width: 100%;
+}
+
+.MainMenuGameName {
+    aspect-ratio: 1270/329;
+    height: 30.46vh;
+}

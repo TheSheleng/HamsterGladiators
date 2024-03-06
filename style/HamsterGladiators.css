@@ -1,0 +1,490 @@
+body {
+    background-image: url("../resources/images/rooms/Room1.jpg");
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+
+#EscMenu {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(217, 168, 142, 0.3);
+    z-index: 1000;
+}
+
+
+#YouDiedMenu {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(10, 0, 0, 0.5);
+    z-index: 900;
+}
+
+#YouDiedMenu p {
+    font-size: 10vh;
+    font-family: "Minecraftia";
+    color: #ffeeee;
+}
+
+
+#HurtOverlay {
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url("../resources/images/overlays/HurtOverlay.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 100;
+	pointer-events: none;
+    opacity: 0;
+}
+
+@keyframes TakeDamage {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.3;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+.ShadowOverlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url("../resources/images/overlays/ShadowOverlay.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 400;
+	pointer-events: none;
+}
+
+
+#Weapon {
+    position: absolute;
+    right: -1%; 
+    bottom: -3.8%;
+    aspect-ratio: 8/21;
+    height: 59.26vh;
+    background-image: url("../resources/images/hud/player/Sword.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 500;
+    animation: WeaponState 2s infinite linear(0, 0.3, 0.7, 1);
+}
+
+@keyframes WeaponState {
+    0% {
+        right: -1%; 
+        bottom: -3.8%;
+    }
+    50% {
+        right: 0%; 
+        bottom: 0%;
+    }
+    100% {
+        right: -1%; 
+        bottom: -3.8%;
+    }
+ }
+
+@keyframes WeaponAttack {
+    0% {
+        right: -1%; 
+        bottom: -3.8%;
+        transform: rotate(0deg);
+    }
+    25% {
+        right: 10%; 
+        bottom: 15%;
+        transform: rotate(25deg);
+    }
+    50% {
+        right: 50%; 
+        bottom: -3.8%;
+        transform: rotate(-80deg);
+    }
+    100% {
+        right: -1%; 
+        bottom: -3.8%;
+        transform: rotate(0deg);
+    }
+ }
+
+
+.UiWrapper {
+    position: absolute;
+    padding: 1.56%;
+    height: 100%;
+    width: 100%;
+}
+
+
+.Ui {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    height: 100%;
+}
+
+
+.UpperUi {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+
+.InventoryItemSlotHintWrapper {
+    z-index: 503;
+}
+
+
+.InventoryItemSlotHint {
+    display: none;
+    align-items: center;
+    gap: 7%;
+    padding: 0px 25px;
+    aspect-ratio: 620/221;
+    height: 20.46vh;
+    background-image: url("../resources/images/hud/inventory/InventoryItemSlotHint.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.HintDisplayPotion {
+    aspect-ratio: 139/152;
+    height: 14.07vh;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#InventoryItem1SlotHint .HintDisplayPotion {
+    background-image: url("../resources/images/hud/inventory/potions/HpPotion.png");
+}
+
+#InventoryItem2SlotHint .HintDisplayPotion {
+    background-image: url("../resources/images/hud/inventory/potions/DmgPotion.png");
+}
+
+#InventoryItem3SlotHint .HintDisplayPotion {
+    background-image: url("../resources/images/hud/inventory/potions/SpeedPotion.png");
+}
+
+#InventoryItem4SlotHint .HintDisplayPotion {
+    background-image: url("../resources/images/hud/inventory/potions/ExpPotion.png");
+}
+
+
+.HintPotionInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.HintPotionName, .HintPotionDescription {
+    font-family: "Minecraftia";
+}
+
+.HintPotionName {
+    padding-top: 4px;
+    font-size: 4.1vh;
+    color: #ffeeee;
+}
+
+.HintPotionDescription {
+    margin-top: -12px;
+    line-height: 4.1vh;
+    font-size: 2.87vh;
+    color: #ebdcdc;
+}
+
+
+.BottomUi {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+}
+
+
+.ProfileUiWrapper {
+    display: flex;
+    position: absolute;
+    z-index: 501;
+}
+
+
+#ProfilePicture {
+    aspect-ratio: 1/1;
+    height: 18.61vh;
+    background-image: url("../resources/images/hud/player/ProfilePicture.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.ProfileStats {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+
+#ProfileName, #ProfileDmg {
+    font-family: "Minecraftia";
+}
+
+#ProfileName {
+    padding-top: 4px;
+    font-size: 4.1vh;
+    color: #ffeeee;
+}
+
+#ProfileDmg {
+    margin-top: -22px;
+    font-size: 2.87vh;
+    color: #ebdcdc;
+}
+
+
+.ProfileHpWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: -13px;
+    aspect-ratio: 58/11;
+    height: 6.11vh;
+}
+
+.ProfileHpBarBackground {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url("../resources/images/hud/bars/HpBarBackground.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.ProfileHpColorWrapper {
+    position: absolute;
+    aspect-ratio: 107/13;
+    height: 3.61vh;
+}
+
+#ProfileHpColor {
+    height: 100%;
+    width: 100%;
+    background-color: #b7554b;
+	transition: 0.3s;
+}
+
+.ProfileHpBarFrame {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url("../resources/images/hud/bars/HpBarFrame.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#ProfileHpValue {
+    position: absolute;
+    font-size: 4.1vh;
+    font-family: "Rainyhearts";
+    color: #ddc1ba;
+}
+
+
+.CenterUiWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    z-index: 502;
+}
+
+
+#QteKey {
+	display: none;
+    aspect-ratio: 1/1;
+    height: 9.26vh;
+}
+
+
+.Inventory {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.2%;
+    aspect-ratio: 1637/598;
+    height: 9.35vh;
+    background-image: url("../resources/images/hud/inventory/Inventory.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+#InventoryItem1Slot, #InventoryItem2Slot, #InventoryItem3Slot, #InventoryItem4Slot, #InventoryItem5Slot {
+    position: relative;
+    aspect-ratio: 1/1;
+    height: 7.6vh;
+    cursor: pointer;
+    background-image: url("../resources/images/hud/button/InventoryItemSlot.png");
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+#InventoryItem1Quantity, #InventoryItem2Quantity, #InventoryItem3Quantity, #InventoryItem4Quantity, #InventoryItem5Quantity {
+    position: absolute; 
+    margin-top: 2%;
+    margin-left: 10%;
+    font-size: 3vh;
+    font-family: "Rainyhearts";
+    color: #ebdcdc;
+}
+
+#InventoryItem1, #InventoryItem2, #InventoryItem3, #InventoryItem4, #InventoryItem5 {
+    position: absolute; 
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    aspect-ratio: 1/1;
+    height: 5.1vh;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#InventoryItem1 {
+    background-image: url("../resources/images/hud/inventory/potions/HpPotion.png");
+}
+
+#InventoryItem2 {
+    background-image: url("../resources/images/hud/inventory/potions/DmgPotion.png");
+}
+
+#InventoryItem3 {
+    background-image: url("../resources/images/hud/inventory/potions/SpeedPotion.png");
+}
+
+#InventoryItem4 {
+    background-image: url("../resources/images/hud/inventory/potions/ExpPotion.png");
+}
+
+
+.MobWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: 13.5vh;
+    width: 100%;
+}
+
+
+.MobHpWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 30px;
+    aspect-ratio: 64/13;
+    height: 4.81vh;
+}
+
+.MobHpBarBackground {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url("../resources/images/hud/bars/MobHpBarBackground.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.MobHpColorWrapper {
+    position: absolute;
+    aspect-ratio: 115/13;
+    height: 2.41vh;
+}
+
+#MobHpColor {
+    height: 100%;
+    width: 100%;
+    background-color: #b7554b;
+	transition: 0.3s;
+}
+
+.MobHpBarFrame {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url("../resources/images/hud/bars/MobHpBarFrame.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#MobHpValue {
+    position: absolute;
+    font-size: 2.87vh;
+    font-family: "Rainyhearts";
+    color: #ddc1ba;
+}
+
+
+#Mob {
+    position: relative;
+    left: 0%;
+    top: 0%;
+    margin-left: -53px;
+    animation: MobMovement 3s infinite cubic-bezier(0.4, 0, 0.6, 1);
+
+}
+
+@keyframes MobMovement {
+    0% {
+        left: -4%;
+        top: 0%;
+    }
+
+    50% {
+        left: 4%;
+        top: 0%;
+    }
+
+    100% {
+        left: -4%;
+        top: 0%;
+    }
+}
+
+#Mob img {
+    height: 45vh;
+    width: 45vh;
+    object-fit: contain;
+    object-position: center;
+}

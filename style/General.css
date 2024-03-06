@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    user-select: none;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+
+.MainMenu button, #YouDiedMenu button, #EscMenu button {
+    padding-top: 2vh;
+    aspect-ratio: 204/61;
+    height: 11.30vh;
+    font-size: 5.33vh;
+    font-family: "Minecraftia";
+    color: #ffeeee;
+    text-transform: uppercase;
+    background-image: url("../resources/images/hud/button/Button.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.MainMenu button:hover, #YouDiedMenu button:hover, #EscMenu button:hover {
+    background-image: url("../resources/images/hud/button/HoverButton.png");
+}
+
+.MainMenu button:active, #YouDiedMenu button:active, #EscMenu button:active {
+    background-image: url("../resources/images/hud/button/ClickButton.png");
+}
+
+
+@font-face {
+    font-family: "Minecraftia";
+    src: url("../resources/fonts/Minecraftia.ttf");
+}
+
+@font-face {
+    font-family: "Rainyhearts";
+    src: url("../resources/fonts/Rainyhearts.ttf");
+}
